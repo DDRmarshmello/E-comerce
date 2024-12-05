@@ -1,0 +1,13 @@
+C:\Users\adilone\source\repos\QuatroSystemExportNew\JwtConfiguration\bin\Debug\net8.0\JwtConfiguration.deps.json
+C:\Users\adilone\source\repos\QuatroSystemExportNew\JwtConfiguration\bin\Debug\net8.0\JwtConfiguration.dll
+C:\Users\adilone\source\repos\QuatroSystemExportNew\JwtConfiguration\bin\Debug\net8.0\JwtConfiguration.pdb
+C:\Users\adilone\source\repos\QuatroSystemExportNew\JwtConfiguration\obj\Debug\net8.0\JwtConfiguration.csproj.AssemblyReference.cache
+C:\Users\adilone\source\repos\QuatroSystemExportNew\JwtConfiguration\obj\Debug\net8.0\JwtConfiguration.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adilone\source\repos\QuatroSystemExportNew\JwtConfiguration\obj\Debug\net8.0\JwtConfiguration.AssemblyInfoInputs.cache
+C:\Users\adilone\source\repos\QuatroSystemExportNew\JwtConfiguration\obj\Debug\net8.0\JwtConfiguration.AssemblyInfo.cs
+C:\Users\adilone\source\repos\QuatroSystemExportNew\JwtConfiguration\obj\Debug\net8.0\JwtConfiguration.csproj.CoreCompileInputs.cache
+C:\Users\adilone\source\repos\QuatroSystemExportNew\JwtConfiguration\obj\Debug\net8.0\JwtConfiguration.sourcelink.json
+C:\Users\adilone\source\repos\QuatroSystemExportNew\JwtConfiguration\obj\Debug\net8.0\JwtConfiguration.dll
+C:\Users\adilone\source\repos\QuatroSystemExportNew\JwtConfiguration\obj\Debug\net8.0\refint\JwtConfiguration.dll
+C:\Users\adilone\source\repos\QuatroSystemExportNew\JwtConfiguration\obj\Debug\net8.0\JwtConfiguration.pdb
+C:\Users\adilone\source\repos\QuatroSystemExportNew\JwtConfiguration\obj\Debug\net8.0\ref\JwtConfiguration.dll

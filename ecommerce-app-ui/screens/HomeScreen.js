@@ -83,7 +83,6 @@ function HomeScreen({ navigation }) {
           </Typo>
           <Typo style={{ color: colors.gray }}>See all</Typo>
         </View>
-        {/* <ScrollView horizontal contentContainerStyle={{ flexGrow: 1 }}> */}
         {data.length > 0 && (
           <FlatList
             scrollEnabled={false}
