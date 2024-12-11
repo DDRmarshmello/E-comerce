@@ -7,6 +7,7 @@ import { normalizeX, normalizeY } from 'utils/normalize';
 import { spacingY } from 'config/spacing';
 import { useNavigation } from '@react-navigation/native';
 const { width } = Dimensions.get('screen');
+import { useFavorite } from 'context/FavoriteContext';
 
 function FavouriteCard({ item }) {
   const navigation = useNavigation();
@@ -30,10 +31,9 @@ function FavouriteCard({ item }) {
           <Typo size={17} style={{ fontWeight: 'bold' }}>
             {item.name}
           </Typo>
-          <MaterialIcons name="delete-outline" size={normalizeY(24)} color={colors.primary} />
         </View>
         <Typo style={styles.catText}>{item.category}</Typo>
-        <Typo style={{ fontWeight: 'bold' }}>{item.price}</Typo>
+        <Typo style={{ fontWeight: 'bold' }}>$ {item.price}</Typo>
       </View>
     </TouchableOpacity>
   );

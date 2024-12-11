@@ -9,7 +9,7 @@ import colors from 'config/colors';
 import { radius, spacingX, spacingY } from 'config/spacing';
 import FilterModal from 'model/FilterModal';
 import React, { useState } from 'react';
-import { View, StyleSheet, FlatList, ScrollView, Image, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, FlatList, ScrollView, TextInput, TouchableOpacity } from 'react-native';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 import { products, categories } from 'utils/data';
 import { normalizeY } from 'utils/normalize';
@@ -19,25 +19,39 @@ function HomeScreen({ navigation }) {
   const [selected, setSelected] = useState('All');
   const [data, setData] = useState(products);
   const [key, setKey] = useState(0);
+  const [search, setSearch] = useState('');
 
-  // useFocusEffect(
-  //   useCallback(() => {
-  //     setKey((prevKey) => prevKey + 1);
-  //   }, [])
-  // );
+  // Función para aplicar los filtros combinados
+  const applyFilters = (searchText, category) => {
+    let filteredProducts = products;
 
+    // Filtrar por categoría
+    if (category !== 'All') {
+      filteredProducts = filteredProducts.filter((item) => item.category === category);
+    }
+
+    // Filtrar por búsqueda
+    if (searchText.trim() !== '') {
+      filteredProducts = filteredProducts.filter((item) =>
+        item.name.toLowerCase().includes(searchText.toLowerCase())
+      );
+    }
+
+    setData(filteredProducts);
+  };
+
+  // Manejo del filtro por categoría
   const handleFilter = (category) => {
     setSelected(category);
-    setData([]);
-    setTimeout(() => {
-      if (category === 'All') {
-        setData(products);
-      } else {
-        const filteredData = products.filter((item) => item.category === category);
-        setData(filteredData);
-      }
-    }, 50);
+    applyFilters(search, category);
   };
+
+  // Manejo de la búsqueda
+  const handleSearch = (text) => {
+    setSearch(text);
+    applyFilters(text, selected);
+  };
+
   return (
     <ScreenComponent style={styles.container}>
       <View style={styles.header}>
@@ -46,15 +60,24 @@ function HomeScreen({ navigation }) {
         </View>
         <TouchableOpacity
           style={styles.iconBg}
-          onPress={() => navigation.navigate('Notifications')}>
+          onPress={() => navigation.navigate('Notifications')}
+        >
           <Ionicons name="notifications-outline" size={24} color="black" />
         </TouchableOpacity>
       </View>
 
-      <SearchBar onPress={() => setFilterModalVisible(true)} />
+      <SearchBar onPress={() => setFilterModalVisible(true)}>
+        <TextInput
+          placeholder="Search..."
+          style={styles.input}
+          value={search}
+          onChangeText={handleSearch}
+        />
+      </SearchBar>
       <ScrollView
         contentContainerStyle={{ paddingBottom: spacingY._60 }}
-        showsVerticalScrollIndicator={false}>
+        showsVerticalScrollIndicator={false}
+      >
         <ImageSlideShow />
 
         <FlatList
@@ -64,11 +87,11 @@ function HomeScreen({ navigation }) {
           contentContainerStyle={styles.catContainer}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item, index }) => {
-            const isSelected = selected == item.name;
+            const isSelected = selected === item.name;
             return (
               <CategoryItem
                 item={item}
-                onPress={handleFilter}
+                onPress={() => handleFilter(item.name)}
                 isSelected={isSelected}
                 index={index}
                 key={index}
@@ -95,29 +118,34 @@ function HomeScreen({ navigation }) {
               paddingTop: spacingY._15,
             }}
             columnWrapperStyle={{ gap: spacingX._20 }}
-            renderItem={({ item, index }) => {
-              return (
-                <Animated.View
-                  key={`${key}-${index}`}
-                  entering={FadeInDown.delay(index * 100)
-                    .duration(600)
-                    .damping(13)
-                    .springify()}>
-                  <ProductCard item={item} />
-                </Animated.View>
-              );
-            }}
+            renderItem={({ item, index }) => (
+              <Animated.View
+                key={`${key}-${index}`}
+                entering={FadeInDown.delay(index * 100)
+                  .duration(600)
+                  .damping(13)
+                  .springify()}
+              >
+                <ProductCard item={item} />
+              </Animated.View>
+            )}
           />
         )}
       </ScrollView>
-      <FilterModal visible={filterModalVisible} setVisible={setFilterModalVisible} />
+      {/* <FilterModal visible={filterModalVisible} setVisible={setFilterModalVisible} /> */}
     </ScreenComponent>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     paddingBottom: spacingY._20,
     backgroundColor: colors.white,
+  },
+  input: {
+    flex: 1,
+    borderRightWidth: 1.2,
+    paddingRight: spacingX._10,
   },
   header: {
     flexDirection: 'row',

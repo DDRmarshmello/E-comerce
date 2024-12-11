@@ -33,19 +33,6 @@
           "SelectedChildIndex": 5,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "JwtServices.cs",
-              "DocumentMoniker": "C:\\Users\\adilone\\source\\E-comerce\\Ecomerce-API\\Services\\JwtServices.cs",
-              "RelativeDocumentMoniker": "Services\\JwtServices.cs",
-              "ToolTip": "C:\\Users\\adilone\\source\\E-comerce\\Ecomerce-API\\Services\\JwtServices.cs",
-              "RelativeToolTip": "Services\\JwtServices.cs",
-              "ViewState": "AQIAABwAAAAAAAAAAAAswJMAAABVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T02:06:52.739Z",
-              "EditorCaption": ""
-            },
-            {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
@@ -63,13 +50,25 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "JwtServices.cs",
+              "DocumentMoniker": "C:\\Users\\adilone\\source\\E-comerce\\Ecomerce-API\\Services\\JwtServices.cs",
+              "RelativeDocumentMoniker": "Services\\JwtServices.cs",
+              "ToolTip": "C:\\Users\\adilone\\source\\E-comerce\\Ecomerce-API\\Services\\JwtServices.cs",
+              "RelativeToolTip": "Services\\JwtServices.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAswJMAAABVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T02:06:52.739Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\adilone\\source\\E-comerce\\Ecomerce-API\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Controllers\\UserController.cs",
               "ToolTip": "C:\\Users\\adilone\\source\\E-comerce\\Ecomerce-API\\Controllers\\UserController.cs",
               "RelativeToolTip": "Controllers\\UserController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAaAAAA",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAAAF0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-05T01:39:19.787Z",
               "EditorCaption": ""
@@ -84,8 +83,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T01:35:05.394Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-05T01:35:05.394Z"
             },
             {
               "$type": "Document",
@@ -97,8 +95,7 @@
               "RelativeToolTip": "Models\\Response.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T01:33:35.083Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-05T01:33:35.083Z"
             },
             {
               "$type": "Document",
@@ -110,8 +107,7 @@
               "RelativeToolTip": "Repository\\Repository.cs",
               "ViewState": "AQIAADUAAAAAAAAAAAAAADUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T01:30:46.411Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-05T01:30:46.411Z"
             }
           ]
         }

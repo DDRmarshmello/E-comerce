@@ -1,4 +1,4 @@
-import { FontAwesome5 } from '@expo/vector-icons';
+import { FontAwesome5, FontAwesome } from '@expo/vector-icons';
 import colors from 'config/colors';
 import { radius, spacingX, spacingY } from 'config/spacing';
 import React from 'react';
@@ -7,15 +7,19 @@ import Typo from './Typo';
 import { normalizeY } from 'utils/normalize';
 import { useNavigation } from '@react-navigation/native';
 const { width, height } = Dimensions.get('screen');
+import { useFavorite } from 'context/FavoriteContext';
 
 function ProductCard({ item }) {
   const navigation = useNavigation();
+  const { isFavorite } = useFavorite();
+
+
   return (
     <TouchableOpacity
       style={styles.container}
       onPress={() => navigation.navigate('ItemDetails', item)}>
       <View style={styles.heartBg}>
-        <FontAwesome5 name={'heart'} size={16} color={'white'} />
+        {isFavorite(item.name) ? <FontAwesome name={'heart'} size={16} color={'red'}  /> : <FontAwesome5 name={'heart'} size={16} color={'white'}  />}
       </View>
       <Image source={item.url} style={styles.img} />
       <Typo size={13} style={styles.name}>
@@ -82,4 +86,5 @@ const styles = StyleSheet.create({
     backgroundColor: colors.black,
   },
 });
+
 export default ProductCard;

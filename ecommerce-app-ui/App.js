@@ -10,18 +10,19 @@ import { useState } from 'react';
 import AuthNavigator from 'navigation/AuthNavigator';
 import AuthContext from 'auth/AuthContext';
 import { CartProvider } from 'context/CartContex';
+import { FavoriteProvider } from 'context/FavoriteContext';
 
 export default function App() {
   const [user, setUser] = useState(null);
   return (
     <AuthContext.Provider value={{ user, setUser }}>
       <CartProvider>
-        {/* <ThemeProvider theme={theme}> */}
-        <StatusBar barStyle={'dark-content'} />
-        <GestureHandlerRootView style={{ flex: 1 }}>
-          <NavigationContainer>{user ? <AppNavigator /> : <AuthNavigator />}</NavigationContainer>
-        </GestureHandlerRootView>
-        {/* </ThemeProvider> */}
+        <FavoriteProvider>
+          <StatusBar barStyle={'light-content'} />
+          <GestureHandlerRootView style={{ flex: 1 }}>
+            <NavigationContainer>{user ? <AppNavigator /> : <AuthNavigator />}</NavigationContainer>
+          </GestureHandlerRootView>
+        </FavoriteProvider>
       </CartProvider>
     </AuthContext.Provider>
   );

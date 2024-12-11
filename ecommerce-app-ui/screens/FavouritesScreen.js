@@ -7,10 +7,11 @@ import React, { useCallback, useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import Animated, { FadeInDown } from 'react-native-reanimated';
-import { products } from 'utils/data';
+import { useFavorite } from 'context/FavoriteContext';
 
 function FavouritesScreen(props) {
   const [key, setKey] = useState(0);
+  const { favorites } = useFavorite();
 
   useFocusEffect(
     useCallback(() => {
@@ -23,7 +24,7 @@ function FavouritesScreen(props) {
         Favourites
       </Typo>
       <FlatList
-        data={products}
+        data={favorites}
         style={{ flex: 1 }}
         keyExtractor={(item, index) => index.toString()}
         contentContainerStyle={styles.listContainer}

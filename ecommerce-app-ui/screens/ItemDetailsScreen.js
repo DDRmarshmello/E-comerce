@@ -1,4 +1,4 @@
-import { AntDesign, MaterialIcons } from '@expo/vector-icons';
+import { AntDesign, MaterialIcons, FontAwesome } from '@expo/vector-icons';
 import { border } from '@shopify/restyle';
 import AppButton from 'components/AppButton';
 import DetailsSelector from 'components/DetailsSelector';
@@ -11,6 +11,7 @@ import { View, StyleSheet, Platform, Dimensions, ScrollView, TouchableOpacity } 
 import { normalizeX, normalizeY } from 'utils/normalize';
 const { height } = Dimensions.get('screen');
 import { useCart } from 'context/CartContex';
+import { useFavorite } from 'context/FavoriteContext';
 
 function ItemDetailsScreen({ route, navigation }) {
   const { addToCart } = useCart();
@@ -19,10 +20,14 @@ function ItemDetailsScreen({ route, navigation }) {
   const [selectedColor, setSelectedColor] = useState(colors.dot1);
   const [selected, setSelected] = useState('Description');
   const allColors = [colors.dot1, colors.dot2, colors.dot3, colors.dot4, colors.gray];
+  const { addFavorite, removeFavorite, isFavorite } = useFavorite();
 
-  const HandleAddtoCart = () => {
-    addToCart();
-    navigation.navigate('Cart');
+  const handleFavorite = () => {
+    if (isFavorite(item.name)) {
+      removeFavorite(item.name);
+    }else{
+      addFavorite(item);
+    }
   };
 
   return (
@@ -36,9 +41,13 @@ function ItemDetailsScreen({ route, navigation }) {
         <View style={styles.iconBg}>
           <AntDesign name="sharealt" size={iconSize} color="black" />
         </View>
-        <View style={styles.iconBg}>
-          <AntDesign name="hearto" size={iconSize} color="black" />
-        </View>
+        <TouchableOpacity style={styles.iconBg} onPress={handleFavorite}>
+          {isFavorite(item.name) ? (
+            <FontAwesome name={'heart'} size={16} color={'red'} />
+          ) : (
+            <AntDesign name="hearto" size={iconSize} color="black" />
+          )}
+        </TouchableOpacity>
       </View>
       <View style={styles.bottomContainer}>
         <ScrollView
@@ -116,7 +125,7 @@ function ItemDetailsScreen({ route, navigation }) {
           <AppButton
             style={{ width: '60%', marginTop: 0 }}
             onPress={() => {
-              addToCart(item)
+              addToCart(item);
               navigation.navigate('Cart');
             }}
             label={'Add to Cart'}
