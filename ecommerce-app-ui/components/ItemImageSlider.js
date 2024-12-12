@@ -29,7 +29,7 @@ function ItemImageSlider({ images }) {
         renderItem={({ item }) => {
           return (
             <View style={styles.imageBG}>
-              <Image source={item} style={styles.image} />
+              <Image source={{uri:item}} style={styles.image} />
             </View>
           );
         }}
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   imageBG: {
     width: screenWidth,
     height: '100%',
-    backgroundColor: colors.lighterGray,
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: '5%',

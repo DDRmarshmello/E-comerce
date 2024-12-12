@@ -15,7 +15,7 @@ function CartCard({ item }) {
     <View style={styles.container}>
       <View style={styles.imgContainer}>
         <Image
-          source={item.url}
+          source={{ uri: item.url }}
           resizeMode="contain"
           style={{
             width: imgSize,
@@ -28,7 +28,7 @@ function CartCard({ item }) {
           <Typo size={17} style={{ fontWeight: 'bold' }}>
             {item.name}
           </Typo>
-          <TouchableOpacity onPress={()=> clearCart()}>
+          <TouchableOpacity onPress={() => clearCart()}>
             <MaterialIcons name="delete-outline" size={normalizeY(24)} color={colors.primary} />
           </TouchableOpacity>
         </View>

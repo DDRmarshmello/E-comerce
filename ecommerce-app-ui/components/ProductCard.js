@@ -21,7 +21,7 @@ function ProductCard({ item }) {
       <View style={styles.heartBg}>
         {isFavorite(item.name) ? <FontAwesome name={'heart'} size={16} color={'red'}  /> : <FontAwesome5 name={'heart'} size={16} color={'white'}  />}
       </View>
-      <Image source={item.url} style={styles.img} />
+      <Image source={{ uri: item.url}} style={styles.img} />
       <Typo size={13} style={styles.name}>
         {item.name}
       </Typo>
